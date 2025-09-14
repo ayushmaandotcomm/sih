@@ -1,0 +1,30 @@
+# Contents of /janmarg/janmarg/backend/train/config/spam.yaml
+
+model:
+  name: "distilbert-base-uncased"
+  type: "transformer"
+  max_length: 128
+
+training:
+  epochs: 5
+  batch_size: 32
+  learning_rate: 5e-5
+  weight_decay: 0.01
+  warmup_steps: 500
+
+data:
+  train_file: "path/to/train_data.csv"
+  validation_file: "path/to/validation_data.csv"
+  text_column: "text"
+  label_column: "label"
+
+logging:
+  log_dir: "logs/spam_classifier"
+  log_level: "info"
+
+evaluation:
+  metrics:
+    - "accuracy"
+    - "f1"
+    - "precision"
+    - "recall"

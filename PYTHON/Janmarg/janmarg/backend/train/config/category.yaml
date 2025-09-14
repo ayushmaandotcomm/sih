@@ -1,0 +1,36 @@
+# File: /janmarg/janmarg/backend/train/config/category.yaml
+
+model:
+  name: "EfficientNet"
+  version: "b0"
+  pretrained: true
+
+training:
+  batch_size: 32
+  learning_rate: 0.001
+  num_epochs: 20
+  optimizer: "Adam"
+  scheduler: "StepLR"
+  step_size: 5
+  gamma: 0.1
+
+data:
+  train_data_path: "/path/to/train/data"
+  val_data_path: "/path/to/val/data"
+  image_size: [224, 224]
+  num_classes: 7
+  categories: 
+    - "news-photo"
+    - "document"
+    - "meme"
+    - "ad"
+    - "screenshot"
+    - "portrait"
+    - "scene"
+
+evaluation:
+  metrics:
+    - "accuracy"
+    - "f1_score"
+    - "precision"
+    - "recall"
